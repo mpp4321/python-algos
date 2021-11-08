@@ -1,3 +1,24 @@
+"""
+
+    Min Heap implementation in Python by Michael Procell :)
+
+    used like this:
+
+    >>> h = MinHeap()
+    >>> h.insert(5)
+    >>> h.insert(3)
+    >>> h.insert(7)
+    >>> a = h.pop()
+    >>> print(a)
+
+    supports custom data types takes positional 
+        argument cmp(a, b) => expects to compute a < b
+
+    max_v is the default value which is used as the
+        max value for the heap (for comparison purposes)
+
+"""
+
 import sys
 
 
@@ -46,14 +67,13 @@ class MinHeap():
             self.front = 0
             self.heap = []
             return _temp
-        
+
         min_val = self.node(0)
         self.heap[0] = self.node(self.front - 1)
         del self.heap[self.front - 1:]
         self.front -= 1
         self.min_heapify(0)
         return min_val
-
 
     # swap's pos1 with pos2 in the heap
     def swap(self, pos1, pos2):
